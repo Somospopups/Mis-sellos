@@ -16,6 +16,12 @@ export const metadata: Metadata = {
   title: "Mis Sellos — la tarjeta de sellos que no se pierde",
   description:
     "Tarjeta de fidelidad digital para cafés y comercios de barrio: vive en el celular del cliente, sellás en dos toques y sabés quién dejó de venir. Sin app. Hecho por POPUPS.",
+  manifest: "/manifest.webmanifest",
+  appleWebApp: {
+    capable: true,
+    title: "Mis Sellos",
+    statusBarStyle: "default",
+  },
 };
 
 export const viewport: Viewport = {

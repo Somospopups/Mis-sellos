@@ -12,6 +12,8 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Wrangler genera bundles temporarios al hacer deploy/dev:
+    "worker/.wrangler/**",
   ]),
 ]);
 

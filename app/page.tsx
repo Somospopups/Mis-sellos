@@ -99,11 +99,12 @@ function Sello({ lleno, i }: { lleno: boolean; i: number }) {
 }
 
 export default function Home() {
+  const base = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
   return (
     <div className="min-h-dvh bg-paper text-ink">
       <header className="sticky top-0 z-20 border-b border-inkline bg-paper/85 backdrop-blur-md">
         <div className="mx-auto flex max-w-[1200px] items-center justify-between px-5 py-3.5">
-          <a href="#" className="flex items-center gap-2 font-bold tracking-tight">
+          <a href={`${base}/`} className="flex items-center gap-2 font-bold tracking-tight">
             <span className="flex h-7 w-7 items-center justify-center rounded-full bg-ink text-sm text-lime">
               ✓
             </span>
@@ -116,9 +117,12 @@ export default function Home() {
             <a href="#precios" className="hover:text-ink">
               Precios
             </a>
+            <a href={`${base}/panel/`} className="hover:text-ink">
+              Panel
+            </a>
           </nav>
           <a
-            href="#precios"
+            href={`${base}/panel/`}
             className="rounded-full bg-ink px-4 py-2 text-sm font-semibold text-paper transition-transform hover:scale-[1.03] active:scale-95"
           >
             Probá gratis
@@ -141,10 +145,10 @@ export default function Home() {
             </p>
             <div className="fade-up fade-up-3 mt-8 flex flex-col gap-3 sm:flex-row">
               <a
-                href="#precios"
+                href={`${base}/panel/`}
                 className="rounded-full bg-lime px-6 py-3.5 text-center font-semibold text-ink transition-transform hover:scale-[1.03] active:scale-95"
               >
-                Probá gratis
+                Empezar gratis
               </a>
               <a
                 href="#como-funciona"
@@ -275,7 +279,11 @@ export default function Home() {
                   ))}
                 </ul>
                 <a
-                  href="mailto:somospopups@gmail.com?subject=Mis%20Sellos"
+                  href={
+                    plan.nombre === "Gratis"
+                      ? `${base}/panel/`
+                      : "mailto:somospopups@gmail.com?subject=Mis%20Sellos"
+                  }
                   className={[
                     "mt-6 rounded-full px-5 py-3 text-center text-sm font-semibold transition-transform hover:scale-[1.02] active:scale-95",
                     plan.destacado

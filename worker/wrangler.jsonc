@@ -1,0 +1,14 @@
+{
+  "name": "mis-sellos-api",
+  "main": "index.js",
+  "account_id": "ab0744a131ff6ae112717490f9994171",
+  "compatibility_date": "2026-10-01",
+  "workers_dev": true,
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "mis-sellos",
+      "database_id": "d3db453e-4b88-4388-a808-732a559c69a4"
+    }
+  ]
+}

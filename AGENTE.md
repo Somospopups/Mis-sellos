@@ -62,6 +62,7 @@ de una fase posterior antes de cerrar los chequeos de la actual.
 ## Convenciones del código
 
 - Mismo stack que los repos hermanos de POPUPS (`Mi-Tienda`, `subasta-argentina`):
-  Next.js App Router + TS + Tailwind + ESLint; Supabase con RLS para datos.
+  Next.js App Router + TS + Tailwind + ESLint. Datos en **Cloudflare Workers +
+  D1** (API en `worker/`), no Supabase.
 - Nombres de archivos en inglés, contenido de la UI en español.
 - Nada de dependencias nuevas sin verificar licencia (evitar AGPL en un SaaS).
