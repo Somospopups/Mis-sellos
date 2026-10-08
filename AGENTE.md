@@ -21,9 +21,13 @@ barrio. Si este archivo contradice a otro, prevalece este.
 
 ```bash
 npm run lint
+npx next typegen
 npx tsc --noEmit
 npm run build
 ```
+
+Nota: `next typegen` regenera `next-env.d.ts` (está en `.gitignore`), sin él el
+`tsc` falla en una recién clonada — el CI lo corre siempre antes del chequeo.
 
 - Si se tocó UI: verificar mobile (375px), modo oscuro y `prefers-reduced-motion`.
 - Si se tocó el sello/flujo crítico: smoke test manual end-to-end (alta →

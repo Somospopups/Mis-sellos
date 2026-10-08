@@ -65,6 +65,7 @@ Chequeos obligatorios antes de cerrar cualquier tarea:
 
 ```bash
 npm run lint
+npx next typegen
 npx tsc --noEmit
 npm run build
 ```
