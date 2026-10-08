@@ -1,4 +1,4 @@
-const CACHE = "mis-sellos-v4";
+const CACHE = "mis-sellos-v5";
 
 self.addEventListener("install", () => {
   self.skipWaiting();
