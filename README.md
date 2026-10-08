@@ -7,6 +7,8 @@ de venir.
 
 Proyecto propio de **POPUPS** (Córdoba, Argentina) · somospopups@gmail.com
 
+**Demo en vivo:** https://somospopups.github.io/Mis-sellos/
+
 > Idea original: la serie de build-in-public de @muscabrera («Sellala #001»),
 > desarrollada con el método POPUPS: Escuchamos → Simplificamos → Diseñamos →
 > Construimos → Acompañamos.
@@ -67,6 +69,13 @@ npx tsc --noEmit
 npm run build
 ```
 
+## Publicación
+
+Cada push a `main` despliega automáticamente en **GitHub Pages**
+(`.github/workflows/deploy.yml`): lint + tsc + build estático
+(`output: export` con `NEXT_PUBLIC_BASE_PATH=/Mis-sellos`) y deploy.
+La landing es 100% estática, por eso puede vivir en Pages sin servidor.
+
 ## Versionado
 
 La fuente de verdad es la constante `VERSION` en `lib/version.ts`. Sube de 1 en
@@ -76,6 +85,8 @@ tarea se cierra con `v<N> funcionando!`.
 ## Estructura
 
 ```
+.github/workflows/
+  deploy.yml      # build + deploy automático a GitHub Pages
 app/
   layout.tsx      # idioma, metadata, fuentes
   page.tsx        # landing
