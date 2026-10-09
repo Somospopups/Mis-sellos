@@ -334,6 +334,23 @@ const api = {
     if (method === "OPTIONS") return text(null, 204);
 
     try {
+      if (method === "GET" && (path === "/" || path === "/api"))
+        return json({
+          ok: true,
+          svc: "mis-sellos-api",
+          rutas: [
+            "GET /api/ping",
+            "POST /api/comercios",
+            "POST /api/comercios/acceso",
+            "GET /api/comercios/:id",
+            "GET /api/comercios/:id/token",
+            "POST /api/comercios/:id/tarjetas",
+            "GET /api/tarjeta?t=...",
+            "POST /api/sello",
+            "POST /api/canje"
+          ]
+        });
+
       if (method === "GET" && path === "/api/ping")
         return json({ ok: true, svc: "mis-sellos" });
 
@@ -399,7 +416,7 @@ const api = {
       if (method === "POST" && path === "/api/canje")
         return await canjear(env, req, await readBody(req));
 
-      return err("no_encontrado", 404);
+      return json({ ok: false, error: "no_encontrado", method, path }, 404);
     } catch (e) {
       return json(
         { ok: false, error: "error_interno", detail: String((e && e.message) || e) },
